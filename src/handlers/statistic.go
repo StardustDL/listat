@@ -99,6 +99,22 @@ func (handler *StatisticHandler) Query(w http.ResponseWriter, r *http.Request) {
 	respondOkWithObject(w, cmts)
 }
 
+// Count statistics return number
+func (handler *StatisticHandler) Count(w http.ResponseWriter, r *http.Request) {
+	cmt := new(models.StatisticQuery)
+	err := json.NewDecoder(r.Body).Decode(cmt)
+	if err != nil {
+		respondErrWithError(w, err)
+		return
+	}
+	total, err := handler.Repo.Count(cmt)
+	if err != nil {
+		respondErrWithError(w, err)
+		return
+	}
+	respondOkWithObject(w, total)
+}
+
 // ParamID parse id from url
 func ParamID(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

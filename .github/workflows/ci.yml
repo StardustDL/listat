@@ -33,7 +33,7 @@ jobs:
         dotnet-version: ${{ env.dotnet-version }}
     - name: Setup psake
       run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
-    - name: CI for loment
+    - name: CI for listat
       run: Invoke-psake ci
     - name: CI for SDK
       env:

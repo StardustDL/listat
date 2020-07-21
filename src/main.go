@@ -59,6 +59,7 @@ func main() {
 	r.Route("/", func(r chi.Router) {
 		r.Post("/", handler.Create)     // statistic -> id
 		r.Post("/query", handler.Query) // statisticQuery -> list[statistic] or null
+		r.Post("/count", handler.Count) // statisticQuery -> number
 		r.Route("/{id}", func(r chi.Router) {
 			r.Use(handlers.ParamID)
 			r.Get("/", handler.Get)       // id -> statistic

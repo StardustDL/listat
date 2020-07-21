@@ -91,7 +91,7 @@ func (repo *StatisticRepository) Delete(id string) (*models.Statistic, error) {
 
 // Query statistics
 func (repo *StatisticRepository) Query(query *models.StatisticQuery) ([]models.Statistic, error) {
-	session := repo.engine.Select("*")
+	session := repo.engine.NewSession()
 	if query.Id != "" {
 		session = session.Where("Id = ?", query.Id)
 	}
@@ -105,7 +105,26 @@ func (repo *StatisticRepository) Query(query *models.StatisticQuery) ([]models.S
 		query.Limit = 10
 	}
 	var result []models.Statistic
-	fmt.Printf("%v", result)
 	err := session.Limit(query.Limit, query.Offset).Find(&result)
 	return result, err
+}
+
+// Count statistics
+func (repo *StatisticRepository) Count(query *models.StatisticQuery) (int64, error) {
+	session := repo.engine.NewSession()
+	if query.Id != "" {
+		session = session.Where("Id = ?", query.Id)
+	}
+	if query.Uri != "" {
+		session = session.Where("Uri = ?", query.Uri)
+	}
+	if query.Category != "" {
+		session = session.Where("Category = ?", query.Category)
+	}
+	if query.Limit == 0 {
+		query.Limit = 10
+	}
+	stat := new(models.Statistic)
+	total, err := session.Count(stat)
+	return total, err
 }

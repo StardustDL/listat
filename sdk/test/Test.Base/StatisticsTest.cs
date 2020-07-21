@@ -58,6 +58,12 @@ namespace Test.Base
             });
             Assert.IsTrue(items.Count > 0);
 
+            var count = await Service.Count(new StatisticQuery
+            {
+                Uri = "abc"
+            });
+            Assert.IsTrue(count > 0);
+
             var del = await Service.Delete(id);
             Assert.IsTrue(del);
         }

@@ -15,6 +15,8 @@ namespace Listat
 
         Task<IList<Statistic>> Query(StatisticQuery query, CancellationToken cancellationToken = default);
 
+        Task<long> Count(StatisticQuery query, CancellationToken cancellationToken = default);
+
         Task<Statistic?> Get(string id, CancellationToken cancellationToken = default);
 
         Task<bool> Delete(string id, CancellationToken cancellationToken = default);
@@ -54,7 +56,7 @@ namespace Listat
             var response = await Client.PostAsJsonAsync("/query", query, cancellationToken).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadFromJsonAsync<IList<Statistic>>(cancellationToken: cancellationToken);
-            if(result is null)
+            if (result is null)
             {
                 return Array.Empty<Statistic>();
             }
@@ -62,6 +64,14 @@ namespace Listat
             {
                 return result;
             }
+        }
+
+        public async Task<long> Count(StatisticQuery query, CancellationToken cancellationToken = default)
+        {
+            var response = await Client.PostAsJsonAsync("/count", query, cancellationToken).ConfigureAwait(false);
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadFromJsonAsync<long>(cancellationToken: cancellationToken);
+            return result;
         }
 
         public async Task<bool> Update(Statistic statistic, CancellationToken cancellationToken = default)

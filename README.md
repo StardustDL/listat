@@ -8,6 +8,7 @@ Listat is a Light STATistic service.
 
 - **Post** `/` with *Statistic* body: Create statistic, return id
 - **Post** `/query` with *StatisticQuery* body: Query statistics, return list of statistics
+- **Post** `/count` with *StatisticQuery* body: Query and count statistics, return the number of statistics
 - **Get** `/id`: Get statistic by id, return statistic
 - **Delete** `/id`: Delete statistic by id, return if done
 - **Put** `/id` with *Statistic* body: Update statistic by id, return if done
@@ -50,6 +51,8 @@ API:
 public interface IListatService
 {
     Task<string?> Create(Statistic statistic, CancellationToken cancellationToken = default);
+
+	Task<long> Count(StatisticQuery query, CancellationToken cancellationToken = default);
 
     Task<IList<Statistic>> Query(StatisticQuery query, CancellationToken cancellationToken = default);
 
