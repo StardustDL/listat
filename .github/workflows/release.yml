@@ -37,7 +37,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: stardustdl/loment
+        repository: stardustdl/listat
         tag_with_ref: true
         dockerfile: ./Dockerfile
     - name: Mirror image
@@ -46,7 +46,7 @@ jobs:
         username: ${{ secrets.MIRROR_DOCKER_USERNAME }}
         password: ${{ secrets.MIRROR_DOCKER_PASSWORD }}
         registry: ${{ secrets.MIRROR_DOCKER_REGISTRY }}
-        repository: stardustdl/loment
+        repository: stardustdl/listat
         tags: latest
         dockerfile: ./Dockerfile
   pub-pkgs:
