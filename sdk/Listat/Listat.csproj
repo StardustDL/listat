@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <Authors>StardustDL</Authors>
+    <Company>StardustDL</Company>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/StardustDL/loment</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StardustDL/loment</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageId>Listat</PackageId>
+    <Product>Listat</Product>
+    <Description>Client SDK for loment RESTful API.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+version: "3.4"
+
+services:
+  server:
+    image: registry.cn-hangzhou.aliyuncs.com/stardustdl/listat:latest # stardustdl/listat:latest
+    ports:
+      - "4500:80"
+    environment:
+      - LISTAT_DBORIGIN=root:123456@(db:3306)
+      - LISTAT_DBNAME=listat_db
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - data:/var/opt/mssql
+volumes:
+  data:
