@@ -10,12 +10,12 @@
     <Authors>StardustDL</Authors>
     <Company>StardustDL</Company>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/StardustDL/loment</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/StardustDL/loment</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/StardustDL/listat</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StardustDL/listat</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>Listat</PackageId>
     <Product>Listat</Product>
-    <Description>Client SDK for loment RESTful API.</Description>
+    <Description>Client SDK for listat RESTful API.</Description>
   </PropertyGroup>
 
   <ItemGroup>

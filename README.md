@@ -52,7 +52,7 @@ public interface IListatService
 {
     Task<string?> Create(Statistic statistic, CancellationToken cancellationToken = default);
 
-	Task<long> Count(StatisticQuery query, CancellationToken cancellationToken = default);
+    Task<long> Count(StatisticQuery query, CancellationToken cancellationToken = default);
 
     Task<IList<Statistic>> Query(StatisticQuery query, CancellationToken cancellationToken = default);
 
