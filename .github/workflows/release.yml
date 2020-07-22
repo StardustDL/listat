@@ -47,7 +47,16 @@ jobs:
         password: ${{ secrets.MIRROR_DOCKER_PASSWORD }}
         registry: ${{ secrets.MIRROR_DOCKER_REGISTRY }}
         repository: stardustdl/listat
-        tags: latest
+        tag_with_ref: true
+        dockerfile: ./Dockerfile
+    - name: Mirror image on Github
+      uses: docker/build-push-action@v1
+      with:
+        username: StardustDL
+        password: ${{ secrets.PA_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: stardustdl/listat/service
+        tag_with_ref: true
         dockerfile: ./Dockerfile
   pub-pkgs:
     runs-on: ubuntu-latest
