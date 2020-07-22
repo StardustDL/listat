@@ -11,7 +11,7 @@ defaults:
 env:
   go-version: "1.14"
   dotnet-version: "3.1.x"
-  build_version: "0.0.1.${{ github.run_number }}-preview"
+  build_version: "0.0.2.${{ github.run_number }}-preview"
 
 jobs:
   ci:

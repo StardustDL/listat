@@ -49,7 +49,7 @@ Task Run -depends Build {
 
 Task Docker {
     Exec { docker-compose up -d db }
-    Start-Sleep -Seconds 10
+    Start-Sleep -Seconds 15
     Exec { docker-compose up -d }
     Start-Sleep -Seconds 5
 }

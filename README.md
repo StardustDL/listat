@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/StardustDL/listat/workflows/CI/badge.svg) ![CD](https://github.com/StardustDL/listat/workflows/CD/badge.svg) ![License](https://img.shields.io/github/license/StardustDL/listat.svg) [![Listat](https://buildstats.info/nuget/Listat)](https://www.nuget.org/packages/Listat/)
 
-Listat is a Light STATistic service.
+Listat is a LIght STATistic service.
 
 ## API
 
