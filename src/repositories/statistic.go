@@ -121,7 +121,10 @@ func (repo *StatisticRepository) Count(query *models.StatisticQuery) (int64, err
 	if query.Category != "" {
 		session = session.Where("Category = ?", query.Category)
 	}
+	if query.Limit == 0 {
+		query.Limit = 10
+	}
 	stat := new(models.Statistic)
-	total, err := session.Count(stat)
+	total, err := session.Limit(query.Limit, query.Offset).Count(stat)
 	return total, err
 }
