@@ -55,7 +55,7 @@ jobs:
         username: StardustDL
         password: ${{ secrets.PA_TOKEN }}
         registry: docker.pkg.github.com
-        repository: stardustdl/listat/service
+        repository: stardustdl/listat/listat-service
         tag_with_ref: true
         dockerfile: ./Dockerfile
   pub-pkgs:
